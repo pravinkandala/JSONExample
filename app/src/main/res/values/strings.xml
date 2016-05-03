@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">JSONExample</string>
+    <string name="web_url">http://faculty.cs.niu.edu/~byrnes/android/json.php</string>
 </resources>
