@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -108,8 +109,23 @@ public class MainActivity extends AppCompatActivity {
 
     private void convertJSONtoArrayList(JSONObject states){
 
+        stateList.clear();
+        try{
+            JSONArray list = states.getJSONArray("places");
 
+            for(int i=0; i<list.length(); i++) {
+                JSONObject stateobj = list.getJSONObject(i);
+                stateList.add(new State(stateobj.getString("Place"), stateobj.getInt("Number")));
+
+            }//end of for loop
+
+        }catch(JSONException e){
+            e.printStackTrace();
+
+        }//end of catch
 
     }//end of convertJSONArrayList
+
+    
 
 }//end of MainActivity
